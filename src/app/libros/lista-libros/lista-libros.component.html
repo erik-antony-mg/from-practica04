@@ -1,0 +1,47 @@
+<div class="container py-5">
+  <h1>Lista de libros</h1>
+  <div class="text-end">
+    <button class="btn btn-primary" routerLink="/nuevo">Nuevo libro</button>
+  </div>
+  <table class="table table-hover mt-5">
+    <thead>
+      <tr>
+        <th>Libro</th>
+        <th>PRECIO</th>
+        <th>F. CREACION</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let libro of libros">
+        <td>
+          <div class="fw-bold">
+            {{ libro.titulo }}
+          </div>
+          <p>
+            {{ libro.descripcion }}
+          </p>
+        </td>
+        <td>
+          {{ libro.precio | currency }}
+        </td>
+        <td>
+          {{ libro.fechaCreacion | date }}
+        </td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-warning pl-10"
+            href="#"
+            [routerLink]="['/editar', libro.id]"
+          >
+            <i class="fa-solid fa-pen-to-square"></i>Editar
+          </button>
+          <a href="#" class="ms-2" type="button" class="btn btn-danger">
+            <i class="fa-sharp fa-solid fa-trash"></i> Eliminar
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

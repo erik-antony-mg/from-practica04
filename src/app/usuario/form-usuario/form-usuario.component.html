@@ -1,0 +1,71 @@
+<div class="container" *ngIf="formulario">
+  <h1>Nuevo Usuario</h1>
+  <div class="mt-5 alert alert-danger"></div>
+  {{ formulario.value | json }}
+  <form
+    class="mt-5"
+    [formGroup]="formulario"
+    autocomplete=""
+    (ngSubmit)="guardar()"
+  >
+    <div class="mb-2">
+      <label for="nombres">Nombres</label>
+      <input
+        id="nombres"
+        type="text"
+        placeholder="Nombres"
+        class="form-control"
+        formControlName="nombres"
+      />
+      <div class="invalid-feedback"></div>
+      <div class="mb-2">
+        <label for="apellidos">Apellidos</label>
+        <input
+          id="apellidos"
+          type="text"
+          placeholder="Apellidos"
+          class="form-control"
+          formControlName="apellidos"
+        />
+        <div class="invalid-feedback"></div>
+      </div>
+      <div class="mb-2">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          placeholder="Email"
+          class="form-control"
+          formControlName="email"
+        />
+        <div class="invalid-feedback"></div>
+      </div>
+      <div class="mb-2">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          placeholder="Password"
+          class="form-control"
+          formControlName="password"
+        />
+        <div class="invalid-feedback"></div>
+      </div>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="rol">ROLL</label>
+        </div>
+        <select class="custom-select" id="rol" formControlName="rol">
+          <option value="1">LECTOR</option>
+          <option value="2">ADMIN</option>
+        </select>
+      </div>
+      <div class="invalid-feedback"></div>
+      <div class="text-end">
+        <button type="button" class="btn btn-light" routerLink="">
+          Cancelar
+        </button>
+        <button class="btn btn-primary ms-2">Guardar libro</button>
+      </div>
+    </div>
+  </form>
+</div>
